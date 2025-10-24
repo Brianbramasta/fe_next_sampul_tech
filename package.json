@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest --runInBand"
   },
   "dependencies": {
     "@rails/actioncable": "^7.1.2",
@@ -16,6 +17,14 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4"
+    "tailwindcss": "^4",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/jest-dom": "^6.0.0",
+    "@testing-library/user-event": "^14.6.0",
+    "jest": "^29.0.0",
+    "jest-environment-jsdom": "^29.0.0",
+    "babel-jest": "^29.0.0",
+    "@babel/preset-env": "^7.22.20",
+    "@babel/preset-react": "^7.22.5"
   }
 }
