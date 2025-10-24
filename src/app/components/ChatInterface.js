@@ -2,8 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 
-export default function ChatInterface({ username }) {
-  const [messages, setMessages] = useState([]);
+export default function ChatInterface({ username, messages, onSendMessage }) {
   const [newMessage, setNewMessage] = useState('');
   const messagesEndRef = useRef(null);
 
@@ -19,16 +18,7 @@ export default function ChatInterface({ username }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (newMessage.trim()) {
-      // In a real app, this would send the message to the server
-      // For now, we'll just add it to the local state
-      const message = {
-        id: Date.now(),
-        username,
-        content: newMessage,
-        created_at: new Date().toISOString(),
-      };
-      
-      setMessages([...messages, message]);
+      onSendMessage(newMessage);
       setNewMessage('');
     }
   };
