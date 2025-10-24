@@ -65,12 +65,12 @@ export default function Home() {
                 String(msg.id || '').startsWith('temp')
               )
             );
+            console.log('Updating messages, removing optimistic duplicates if any', filteredMessages);
             return [...filteredMessages, data.message];
           });
-        } else if (data.message) {
-          // Handle direct message broadcasts
-          setMessages(prevMessages => [...prevMessages, data.message]);
-        }
+        } 
+
+
       }
     });
     
@@ -97,7 +97,7 @@ export default function Home() {
       };
 
       // Add message immediately to UI
-      setMessages(prevMessages => [...prevMessages, optimisticMessage]);
+      // setMessages(prevMessages => [...prevMessages, optimisticMessage]);
 
       // Send message through WebSocket
       if (!subscription) {
